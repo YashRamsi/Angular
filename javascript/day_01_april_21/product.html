@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flipkart Product</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      background-color: #f1f3f6;
+    }
+    .product-container {
+      max-width: 900px;
+      background-color: white;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .btn-custom {
+      padding: 12px 30px;
+      font-weight: 600;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    #addToCart {
+      background-color: #ff9f00;
+      color: white;
+    }
+    #goToCart {
+      background-color: #fb641b;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-container d-flex flex-wrap">
+    <div class="me-4">
+      <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/watch/8/r/x/1-tw0tg7304-timex-men-original-imahazdr4ezwg5j6.jpeg?q=70&crop=false" width="300" class="rounded" />
+    </div>
+    <div>
+      <h3>Timex Men's Classic Watch</h3>
+      <p class="text-muted">Water Resistant | Leather Strap</p>
+      <h4 class="text-success">₹2,499</h4>
+      
+      <label for="qty" class="form-label mt-3">Quantity</label>
+      <select id="qty" class="form-select w-auto">
+        <option value="0">Select Qty</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+
+      <div class="mt-4">
+        <button id="addToCart" class="btn-custom">Add to Cart</button>
+        <button id="goToCart" class="btn-custom">Go to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const addToCartBtn = document.getElementById("addToCart");
+    const goToCartBtn = document.getElementById("goToCart");
+    const qtySelect = document.getElementById("qty");
+
+    addToCartBtn.onclick = () => {
+      const qty = parseInt(qtySelect.value);
+      if (qty === 0) {
+        alert("Please select a quantity before adding to cart.");
+        return;
+      }
+
+      const product = {
+        name: "Timex Men's Classic Watch",
+        price: 2499,
+        image: "https://rukminim2.flixcart.com/image/832/832/xif0q/watch/8/r/x/1-tw0tg7304-timex-men-original-imahazdr4ezwg5j6.jpeg?q=70&crop=false",
+        quantity: qty
+      };
+
+      localStorage.setItem("cartItem", JSON.stringify(product));
+      alert("Item added to cart!");
+    };
+
+    goToCartBtn.onclick = () => {
+      const data = localStorage.getItem("cartItem");
+      if (!data) {
+        alert("Your cart is empty. Please add an item first.");
+        return;
+      }
+      window.location.href = "cart.html";
+    };
+  </script>
+</body>
+</html>

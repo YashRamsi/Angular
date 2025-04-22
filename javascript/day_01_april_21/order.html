@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Confirmed</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      background-color: #eafaf1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .success-box {
+      background-color: white;
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    }
+    .success-box img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    .btn-shop-again {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="success-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success" />
+    <h2>🎉 Your Order Has Been Received!</h2>
+    <p>Thank you for shopping with us. We’ll notify you once it’s shipped.</p>
+    <button class="btn-shop-again" onclick="goHome()">Shop More</button>
+  </div>
+
+  <script>
+    function goHome() {
+      window.location.href = "product.html";
+    }
+  </script>
+</body>
+</html>
