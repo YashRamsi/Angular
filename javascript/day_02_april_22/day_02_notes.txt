@@ -9,7 +9,6 @@ ol>li*5{Country-$}
 
 select>option*20{Country-$}
 
-
 table>tbody>tr*50>td*5{Data-$}
 
 Use CSS in HTML
@@ -35,19 +34,19 @@ How to execute JS code
 ------------------------------------
 1. Browser (Frontend Development)
     a. Create a JS file 
-    b. include that JS in HTML file suing script tag
+    b. include that JS in HTML file using script tag
     c. open the HTML file in browser (alt+b)
-2. Node]S (BackEnd Development)
+2. NodeJS (BackEnd Development)
     a. create a javascript file with some javascript content (abc.js)
     b. Run that javascript file with the below command node ‹ filename>.js (make sure nodejs is installed)
-Note: Every javascript code that runs on browser might not run in nodejs window.alert( Addition of ${a) and ${b} is $(a+b]*); // this statement only works in browser, not in nodejs
+Note: Every javascript code that runs on browser might not run in nodejs window.alert( Addition of ${a} and ${b} is $(a+b]*); // this statement only works in browser, not in nodejs
 
 
 
 
 Most commonly used JS functions
 ------------------------------------
-console.log()   --- cosole is one object and log is a function
+console.log()   --- console is one object and log is a function
 document.write() -- document is object and write is function
 window.alert()   -- window is object and alert is function
 
