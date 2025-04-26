@@ -15,6 +15,9 @@
 
 
 
+https://github.com/sanjaysamantra1/git_notes
+https://fakestoreapi.com/products
+
 Web Development
 ===============
 -Developing a website:

@@ -1,0 +1,11 @@
+<script>
+    function f1() {
+        if (true) {
+            var a = 10;
+            console.log('inside block: ', a); // yes
+        }
+        console.log('inside function: ', a); // yes
+    }
+    f1();
+    // even though 'a' is declared inside a block, it is visible outside the block
+</script>

@@ -1,0 +1,25 @@
+<script>
+    var a = 10;    // ES-5
+    let b = 20;    // ES-6
+    const c = 30;  // ES-6
+    console.log(`a value is: ${a}`);
+    console.log(`b value is: ${b}`);
+    console.log(`c value is: ${c}`);
+
+    a = 15;
+    b = 25;
+    // c = 35;
+    console.log(`a value is: ${a}`);
+    console.log(`b value is: ${b}`);
+    console.log(`c value is: ${c}`);
+
+    const arr1 = [10, 20];
+    arr1.push(30); // allowed
+    console.log(arr1);
+    // arr1 = [100, 200]; // a new array cann't be assigned to that const 
+
+    const obj = { a: 10, b: 20 };
+    obj.c = 30; // add a new property
+    console.log(obj);
+    obj = {a:100,b:200}; // this is not allowed
+</script>

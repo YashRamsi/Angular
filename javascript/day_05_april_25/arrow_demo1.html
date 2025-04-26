@@ -1,0 +1,29 @@
+<script>
+    // Regular function: 'this' - how/where the fuctin is called
+    // Arrow function: 'this' - where the function is defined/written
+
+
+
+     // Demonstarting Limitations of arrow functions
+    let user = {
+        name:'Yash',
+        age: 25,
+        address: 'Vizag',
+
+        details: function() {
+            console.log(this.name); // Yash
+            console.log(this.age); // 25
+            console.log(this.address); // Vizag
+        },
+
+        details2: () => {
+            console.log(this.name); // Yash
+            console.log(this.age); // 25
+            console.log(this.address); // Vizag   
+        }
+    }
+    // 1. Arrow functions shouldnt be used as object methods
+    user.details(); // Yash 25 Vizag
+    user.details2(); // undefined undefined undefined
+    
+</script>

@@ -30,7 +30,6 @@ ES_14    2023
 ES_15    2024  
 
 
-
 	Javascript					       TypeScript
 ---------------------------------------------------------
 1.strongly typed-No				  1.strongly typed-yes
@@ -48,3 +47,5 @@ How to convert typescript file to Javascript
 2. npm i -g typescript  && tsc <filename>.ts
            (OR)
     npx tsc  <filename>.ts
+
+
