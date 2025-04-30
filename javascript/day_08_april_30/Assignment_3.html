@@ -1,0 +1,153 @@
+<h6>
+1. declare array of employees & sort by employee ID
+</h6>
+<script>
+let emp_s = [
+    { eId: 101, name: 'sanjay', sal: 5000, gender: 'male' },
+    { eId: 104, name: 'geeta', sal: 8000, gender: 'female' },
+    { eId: 103, name: 'sameer', sal: 7000, gender: 'male' },
+    { eId: 102, name: 'sita', sal: 9000, gender: 'female' },
+	{ eId: 105, name: 'deepak', sal: 8000, gender: 'male' }
+  ]; 
+    console.log("Employees sorted by ID:");
+    emp_s.sort((a, b) => a.eId - b.eId);
+    emp_s.forEach(emp => {
+        console.log(emp.eId + ": " + emp.name);
+    });
+    //using object for display the results
+    
+    console.log("=====================");
+</script>
+
+<h6>
+2. Sort them in ascending order by name.
+</h6>
+<script>
+    emp_s.sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
+    console.log("Employees sorted by name:");
+    emp_s.forEach(emp => {
+        console.log(emp.name);
+    });
+    console.log("=====================");
+</script>
+
+<h6>
+3.  Filter the employees whose sal>6000;
+</h6>
+<script>
+    filter_emp_s = emp_s.filter(emp => emp.sal > 6000);
+    console.log("Employees with salary greater than 6000:");
+    filter_emp_s.forEach(emp => {
+        console.log(emp.name);
+    });
+    console.log("=====================");
+</script>
+
+
+<h6>
+4. Increase sal of every employee by 500
+</h6>
+<script>
+    emp_s.forEach(emp => {
+        emp.sal += 500;
+    });
+    console.log("Employees Salary after increasing salary by 500:");
+    //add 500 to each employee
+    emp_s.forEach(emp => {
+        console.log(emp.name + ": " + emp.sal);
+    });
+    console.log("=====================");
+</script>
+
+<h6>
+5. Add "company:ibm" to every employee;
+</h6>
+<script>
+    emp_s.forEach(emp => {
+        emp.company = "ibm";
+    });
+    console.log("Employees after adding company:");
+    emp_s.forEach(emp => {
+        console.log(emp.name + ": " + emp.company);
+    });
+    console.log("=====================");
+</script>
+
+<h6>
+6. Convert array of letters to array of words
+</h6>
+<script>
+    arr_i = ['b', 'a', 'k', 'e', '',
+			'c', 'a', 'k', 'e', '',
+			'e', 'a', 't'
+			];
+    arr_w = [];
+    word = '';  
+    for (let i = 0; i < arr_i.length; i++) {
+        if (arr_i[i] == '') {
+            arr_w.push(word); // word to the array using push () when an space is occurred
+            word = ''; // reset word
+        } else {
+            word += arr_i[i];   // combine letters to form a word
+        }
+    }
+    arr_w.push(word); //Add the last word
+    console.log("Array of words:", arr_w);
+    console.log("=====================");
+</script>
+
+
+<h6>
+7.add Dept info for each employee
+employees = [{eId: 101, name: "sanjay", sal: 5000, gender: "male" },
+            { eId: 104, name: "reena", sal: 8000, gender: "female" }]
+departments = [{ eId: 101, dept: "sales" },
+            { eId: 104, dept: "marketing" }]
+</h6>
+<script>
+
+
+
+</script>
+<!--  
+7. add Dept info for each employee
+    employees = [{eId: 101, name: "sanjay", sal: 5000, gender: "male" },
+				{ eId: 104, name: "reena", sal: 8000, gender: "female" }]
+	departments = [{ eId: 101, dept: "sales" },
+				{ eId: 104, dept: "marketing" }]
+
+8. declare array of employees & groupBy employees-name
+    sample output: {
+		'sanjay' : [{},{}],
+		'alok' : [{}]
+	}
+-->
+
+<h6>
+9. Intersection of 2 number arrays
+</h6>
+    <script>
+    arr_1 = [2, 3, 5, 7, 11];
+    arr_2 = [1, 3, 5, 7, 9, 11];
+    in_a1_a2 = arr_1.filter(num => arr_2.includes(num));
+    console.log("Intersection of two arrays:", in_a1_a2);
+    console.log("=====================");
+    </script>
+
+<h6>
+10. WAP to print the occurance of each elements 
+    input = [10,20,30,40,50,10,30,50]
+	output = {10:2, 20:1, 30:2 , 40:1, 50:2}
+</h6>
+<script>
+   
+     a_num = [10, 20, 30, 40, 50, 10, 30, 50];
+     a_count = {};
+
+     a_num.forEach(num => {
+        a_count[num] = (a_count[num] || 0) + 1;
+    });
+    console.log("Occurrence of each element:");
+    console.log(a_count);
+</script>
+

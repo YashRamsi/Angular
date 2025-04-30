@@ -1,0 +1,31 @@
+
+//combine the letters to form a word when space is encoutered
+<script> 
+    const arr_i = ['b', 'a', 'k', 'e', '',
+    'c', 'a', 'k', 'e', '',
+    'e', 'a', 't'
+    ];
+    word = ''
+    out = []
+    for(ch of arr_i){
+        if (ch != '') {
+            word += ch
+        } else {
+            out.push(word)
+            word = ''
+        }
+    }
+    out.push(word)
+    console.log(out)
+    
+// for (char of arr_i){
+//     if (char != '') {
+//         word += char
+//     } else {
+//         out.push(word)
+//         word = ''
+//     }
+//     out.push(word)
+//     console.log(out)
+// }
+</script>
