@@ -1,0 +1,3 @@
+dor notoation and "of" notoation
+ 
+DOT notation cant be used when object key contains space

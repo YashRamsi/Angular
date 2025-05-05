@@ -1,0 +1,21 @@
+<script>
+    class Student {
+        constructor(roll, name) {
+            this.roll = roll;
+            this.name = name;
+        }
+    }
+    Student.prototype.clgName = 'Eureka';
+
+    st1 = new Student(101, 'Rohit');
+    st2 = new Student(102, 'yashwant');
+
+    console.log(st1, st2);
+
+    console.log(st1.hasOwnProperty('name')); // true
+    console.log(st1.hasOwnProperty('DOB')); // false
+    console.log(st1.hasOwnProperty('clgName')); // false -- because clgName is not a direct property of st1 
+
+    console.log('name') in st1; // true
+    console.log('clgName' in st1); // true
+</script>
