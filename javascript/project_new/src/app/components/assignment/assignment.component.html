@@ -1,0 +1,64 @@
+<h1>Assignment Component</h1>
+<p>Welcome to the assignment component!</p>
+<!--It includes a button to toggle the visibility of a paragraph using Event-Bindng concepts.
+// With showParagraph set to false, the paragraph is hidden by default.--> 
+<button (click)="showText = !showText">
+    {{ showText ? 'Hide Text' : 'Show Text' }} <!--? is used as ternary operator for if else condition-->
+  </button>
+  <div [hidden]="!showText">
+    This is a sample paragraph shown or hidden by the button.
+  </div>
+<br>
+<div>
+    <textarea maxlength="100" [(ngModel)]="message" (input)="remaining = 100 - message.length"></textarea>
+    <p>Remaining characters: {{ remaining }}</p>
+</div>
+<br>
+<div>
+    <select #dropdown (change)="State = dropdown.value">
+      <option value="">-- Select a State --</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+    </select>
+    <p>Selected State: {{ State }}</p>
+  </div>
+  <br>
+  <div>
+    <input type="number" [(ngModel)]="num1" placeholder="Enter first number">
+    <select [(ngModel)]="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <p>Selected Operator: {{ operator }}</p>
+    <input type="number" [(ngModel)]="num2" placeholder="Enter second number">
+    <button (click)="calculate()">Calculate</button>
+    <p>Result: {{ result }}</p>
+  </div>
+  <br>  <div>
+    <input [type]="inputType" placeholder="Enter your password">
+    <button (click)="toggleVisibility()">
+      {{ inputType === 'password' ? 'Show' : 'Hide' }} Password
+    </button>
+  </div>
+  <br>
+  <div>
+    <h2>Counter: {{ count }}</h2>
+    <button class="me-2" (click)="increment()">Increment</button>
+    <button class="me-2" (click)="decrement()">Decrement</button>
+    <button (click)="reset()">Reset</button>
+  </div>
+  <br>
+  <div [class.dark]="isDarkMode" [class.light]="!isDarkMode">
+    <button (click)="isDarkMode = !isDarkMode">
+      {{ isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
+    </button>
+    <p>The current theme is: {{ isDarkMode ? 'Dark' : 'Light' }}</p>
+  </div>
+  <br>
+
+
+
