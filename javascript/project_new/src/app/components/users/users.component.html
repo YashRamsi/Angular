@@ -1,0 +1,38 @@
+<h3 class="text-center">User List</h3>
+<button class="btn btn-primary" (click)="flag = !flag">Toggle Table/card</button>
+
+@if (flag) {
+  <table class="table">
+    <tbody>
+      @for (user of users; track $index) {
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.address.city}}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+} @else {
+  <div class="container">
+    <div class="row">
+        @for (user of users; let i = $index; track $index) {
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+              <div class="card h-100">
+                <img  [src]="images[i]" class="card-img-top user-img" alt="User Image"/>
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{ user.name }}</h5>
+                  <p class="card-text">{{ user.username }}</p>
+                  <p class="card-text">{{ user.email }}</p>
+                  <p class="card-text">{{ user.phone }}</p>
+                  <p class="card-text">{{ user.address.city }}</p>
+                  <a href="#" class="btn btn-primary">Details</a>
+                </div>
+              </div>
+            </div>
+          }
+    </div>
+  </div>
+}

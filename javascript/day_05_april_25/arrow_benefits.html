@@ -1,0 +1,21 @@
+<script>
+    class Student{
+        firstName = "Yaswanth";
+        lastName = "Pavuluri";
+
+        fullName1(){
+            console.log(this.firstName, this.lastName, this)
+        }
+
+        fullName2 = ()=>{
+            console.log(this.firstName, this.lastName, this)
+        }
+    }
+
+    let std = new Student();
+    std.fullName1(); // this is referring to Student Object
+    std.fullName2(); // this here is referring to Class Student
+
+    setTimeout(std.fullName1, 2000); // setTimeOut is higher order function
+    setTimeout(std.fullName2, 4000); // fullName1 and fullName2 are callback function
+</script>

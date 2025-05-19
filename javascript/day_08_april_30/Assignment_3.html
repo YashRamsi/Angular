@@ -10,11 +10,11 @@ let emp_s = [
 	{ eId: 105, name: 'deepak', sal: 8000, gender: 'male' }
   ]; 
     console.log("Employees sorted by ID:");
-    emp_s.sort((a, b) => a.eId - b.eId);
+    emp_s.sort((a, b) => a.eId - b.eId); // --------> Numeric sorting
     emp_s.forEach(emp => {
         console.log(emp.eId + ": " + emp.name);
     });
-    //using object for display the results
+    
     
     console.log("=====================");
 </script>
@@ -85,7 +85,7 @@ let emp_s = [
     word = '';  
     for (let i = 0; i < arr_i.length; i++) {
         if (arr_i[i] == '') {
-            arr_w.push(word); // word to the array using push () when an space is occurred
+            arr_w.push(word); // last word to the array using push () when an space is occurred
             word = ''; // reset word
         } else {
             word += arr_i[i];   // combine letters to form a word
@@ -105,23 +105,48 @@ departments = [{ eId: 101, dept: "sales" },
             { eId: 104, dept: "marketing" }]
 </h6>
 <script>
+let employees = [
+  { eId: 101, name: "sanjay", sal: 5000, gender: "male" },
+  { eId: 104, name: "reena", sal: 8000, gender: "female" }
+];
 
+let departments = [
+  { eId: 101, dept: "sales" },
+  { eId: 104, dept: "marketing" }
+];
 
+let add_dept = employees.map(emp => {
+  let dept = departments.find(dept => dept.eId === emp.eId);
+  return { ...emp, dept: dept ? dept.dept : "N/A" }; //-------> use spread operator for copying properties and ternary for adding dept_id if id matches
+});
 
+console.log("Employees with department info:");
+add_dept.forEach(emp => {
+  console.log(emp.name + ": " + emp.dept);
+});
+console.log("=====================");
 </script>
-<!--  
-7. add Dept info for each employee
-    employees = [{eId: 101, name: "sanjay", sal: 5000, gender: "male" },
-				{ eId: 104, name: "reena", sal: 8000, gender: "female" }]
-	departments = [{ eId: 101, dept: "sales" },
-				{ eId: 104, dept: "marketing" }]
 
+<h6>
 8. declare array of employees & groupBy employees-name
     sample output: {
 		'sanjay' : [{},{}],
 		'alok' : [{}]
 	}
--->
+</h6>
+<script>
+let emp_group = [
+    { eId: 101, name: 'sanjay', sal: 5000, gender: 'male' },
+    { eId: 104, name: 'geeta', sal: 8000, gender: 'female' },
+    { eId: 103, name: 'sanjay', sal: 7000, gender: 'male' },
+    { eId: 102, name: 'sita', sal: 9000, gender: 'female' },
+	{ eId: 105, name: 'deepak', sal: 8000, gender: 'male' }
+  ]; 
+
+const e_grouped = Object.groupBy(emp_group, emp => emp.name);
+console.log(e_grouped);
+console.log("=====================");
+</script>
 
 <h6>
 9. Intersection of 2 number arrays

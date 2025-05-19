@@ -25,12 +25,16 @@ export class AssignmentComponent {
   calculate() {
     if (this.operator === '+') {
       this.result = this.num1 + this.num2;
+      console.log('Addition result:', this.result);
     } else if (this.operator === '-') {
       this.result = this.num1 - this.num2;
+      console.log('Subtraction result:', this.result);
     } else if (this.operator === '*') {
       this.result = this.num1 * this.num2;
+      console.log('Multiplication result:', this.result);
     } else if (this.operator === '/') {
       this.result = this.num2 !== 0 ? this.num1 / this.num2 : 0;
+      console.log('Division result:', this.result);
     }
   }
   //---------------------// Question 5: Toggle for password visibility
@@ -52,5 +56,3 @@ export class AssignmentComponent {
   //----------------------// Question 7: Toggle button to control Dark/Light theme of a page.
   isDarkMode = false;
 }
-
-

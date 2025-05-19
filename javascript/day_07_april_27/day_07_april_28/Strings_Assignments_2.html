@@ -15,6 +15,7 @@
         }
     }
     console.log(tmp);
+    console.log("================");
 
     // tmp = {};
     // for(i=0; i<str.length; i++){
@@ -45,12 +46,13 @@ output : 'L'
         }
     }
     //convert object into array to sort
-    a_sort = Object.entries(tmp);
+    a_sort = Object.entries(tmp); // --------> Key-Value pairs
     // sort using Key values pairs based on values  and comparision sort
     a_sort.sort((a,b) => b[1] - a[1]);
-    res = a_sort[0][0];
+    res = a_sort[0][0]; // ----> first element of sorted array 'l' - > 3
     res = res.toUpperCase();
     console.log(res);
+    console.log("================");
 </script>
 
 <h6>
@@ -70,6 +72,7 @@ output : 'L'
         }
     }
     console.log(result);
+    console.log("================");
    </script>
 
 <h6>
@@ -90,6 +93,7 @@ output : 'L'
     result += words[words.length - 1].toLowerCase();
 
     console.log(result);
+    console.log("================");
    </script>
 <h6>
 5. Shift the characters by the next character, the output should have the next char of input
@@ -107,6 +111,7 @@ output : 'L'
           }
      }
      console.log(res);
+     console.log("================");
      </script>
 
 <h6>
@@ -114,16 +119,31 @@ output : 'L'
     input: '([{ }])'
     output : true
     </h6>
-         <script>
-            
-         </script>
+    <script>
+    str_p = '([{}])';
+    stack = [];
+    pairs = {')':'(', ']':'[', '}':'{'};
+    match = true;
+    for (let char of str_p) {
+            if (char === '(' || char === '[' || char === '{') {
+                stack.push(char);
+            } else if (char === ')' || char === ']' || char === '}') {
+                if (stack.length === 0 || stack.pop() !== pairs[char]) {
+                    match = false;
+                    break;
+                }
+            }
+        }
+    console.log(match && stack.length === 0);
+    console.log("================");
+    </script>
 
     <h6>
 7.  Ask user to enter a 3 letter word, print all the permutations using those 3 letters.
     input: 'ABC'
     output: ABC , ACB , BCA, BAC ...
     </h6>
-         <script>
+         <!-- <script>
             str = 'ABC'
             res={}
             for(i=0; i<str.length; i++){ 
@@ -136,15 +156,40 @@ output : 'L'
                 }
             }
             console.log(res);
-          </script>
+          </script> -->
 
     <h6>
  8. Ask user to enter a number and convert that to Roman value
     input:   9    12
     output : IX   XII
-     </h6>
-
-
+    </h6>
+    <script>
+    //let num = parseInt(prompt("Enter a number to convert to Roman:")); 
+    let num = 8;
+    let roman = "";
+    const roman_val = [
+          { val: 500, notation: "D" },
+          { val: 400, notation: "CD" },
+          { val: 100, notation: "C" },
+          { val: 90, notation: "XC" },
+          { val: 50, notation: "L" },
+          { val: 40, notation: "XL" },
+          { val: 10, notation: "X" },
+          { val: 9, notation: "IX" },
+          { val: 5, notation: "V" },
+          { val: 4, notation: "IV" },
+          { val: 1, notation: "I" },
+        ];
+        
+    for (let i = 0; i < roman_val.length; i++) {
+        while (num >= roman_val[i].val) {
+        roman += roman_val[i].notation;
+        num -= roman_val[i].val;
+        }
+    }    
+    console.log("Roman Value:", roman);
+    console.log("================");
+    </script>
 
     <h6>
 9. Ask user to enter a roman string and convert that to integer value

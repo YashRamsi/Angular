@@ -36,14 +36,11 @@ input:- 'entertainment'
 output:- 'r'
 <h6>
     <script>
-        
         str="entertainment"
-
         //Normal Script using Indexof and lastIndexof
-        for (i=0; i<str.length; i++){
-            if (str.indexOf(str[i])==str.lastIndexOf(str[i])){
-                console.log(str[i])
-                break;
+        for (ch of str) {
+        if (str.indexOf(ch) === str.lastIndexOf(ch)) {
+            console.log(ch);
             }
         }
 
@@ -72,14 +69,9 @@ output:- 'r'
         //using split(), for() and join()
         a_words = str.split(" ");
         for (i = 0; i < a_words.length; i++) {
-            a_words[i] = a_words[i][0].toUpperCase() + a_words[i].substring(1);
+            a_words[i] = a_words[i][0].toUpperCase() + a_words[i].substring(1); //------> "J" + "avascript"
         }
         let res = a_words.join(" ");
-
-
-        //using split(), map() and join()
-        //res=str.split(" ").map((word)=>word.charAt(0).toUpperCase()+word.slice(1)).join(" ")
-
 
         console.log(res) // 'This Is Javascript Class'
     </script>   
@@ -125,9 +117,8 @@ output:- '1111-2222-3333-4444'
 </h6>
     <script>
         str="1111222233334444"
-        //using regex, replace() method
+        //using regex notations, match() method
         res = str.match(/.{1,4}/g).join("-");
-        //res_1=str.replace(/(\d{4})(?=\d)/g, "$1-")
         console.log(res) 
     </script>
 <h6>
@@ -156,7 +147,7 @@ output:- 'hellohi'
     <script>
         str="hello@#hi&"
         //using regex, replace() method
-        res_1=str.replace(/[^a-zA-Z0-9]/g, "")
+        res_1=str.replace(/[^a-zA-Z0-9]/g, "") //----> ^ means not, . means any character
         console.log(res_1) // 'hellohi'
     </script>
 <h6>
