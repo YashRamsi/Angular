@@ -1,0 +1,89 @@
+<h3 class="text-center">EMPLOYEE DATA</h3>
+<div class="d-flex justify-content-center mt-3">
+    <div style="width: 80%;">
+        <table class="table table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                  <th style="width: 60px;">ID</th>
+                  <th style="width: 100px;">Name</th>
+                  <th style="width: 60px;">Salary</th>
+                  <th style="width: 70px;">Gender</th>
+                  <th style="width: 40px;">Action</th>
+                </tr>
+              </thead>
+            <tbody>
+              @for (emp of employees; let i = $index; track emp.eId) {
+                <tr>
+                  <td>{{ emp.eId }}</td>
+                  <td>{{ emp.name }}</td>
+                  <td>{{ emp.sal }}</td>
+                  <td>{{ emp.gender }}</td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="viewEmployee(emp)">
+                        <fa-icon [icon]="faEye"></fa-icon>
+                      </button>
+                    <button type="button" class="btn btn-sm btn-outline-danger me-1" (click)="deleteEmployee(i)">
+                      <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-warning me-1" (click)="editEmployee(emp)">
+                      <fa-icon [icon]="faEdit"></fa-icon>
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+<!-- FORM -->
+<div class="container text-center my-3">
+    <div class="row justify-content-center">
+      <div class="col-md-2">
+        <input type="number" min="1" class="form-control" [(ngModel)]="newEmp.eId" placeholder="ID" name="id">
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" [(ngModel)]="newEmp.name" placeholder="Name" name="name">
+      </div>
+      <div class="col-md-3">
+        <input type="number" min="1" class="form-control" [(ngModel)]="newEmp.sal" placeholder="Salary" name="sal">
+      </div>
+      <div class="col-md-2">
+        <select class="form-select" [(ngModel)]="newEmp.gender" name="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-success" (click)="addEmployee()">
+            <fa-icon [icon]="faPlus"></fa-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            {{ selectedEmp?.name || 'Employee Details' }}
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+  
+        <div class="modal-body">
+          <p><strong>ID:</strong> {{ selectedEmp?.eId }}</p>
+          <p><strong>Name:</strong> {{ selectedEmp?.name }}</p>
+          <p><strong>Salary:</strong> ${{ selectedEmp?.sal }}</p>
+          <p><strong>Gender:</strong> {{ selectedEmp?.gender }}</p>
+        </div>
+  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>

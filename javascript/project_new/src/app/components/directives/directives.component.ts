@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-directives',
   imports: [
     FormsModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './directives.component.html',
   styleUrl: './directives.component.css'
