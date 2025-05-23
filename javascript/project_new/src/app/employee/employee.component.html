@@ -61,29 +61,30 @@
     </div>
   </div>
 
-  <!-- Modal -->
+<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
       
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
-            {{ selectedEmp?.name || 'Employee Details' }}
-          </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+        @if (selectedEmp) {
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              {{ selectedEmp.name }}
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
   
-        <div class="modal-body">
-          <p><strong>ID:</strong> {{ selectedEmp?.eId }}</p>
-          <p><strong>Name:</strong> {{ selectedEmp?.name }}</p>
-          <p><strong>Salary:</strong> ${{ selectedEmp?.sal }}</p>
-          <p><strong>Gender:</strong> {{ selectedEmp?.gender }}</p>
-        </div>
+          <div class="modal-body">
+            <p><strong>ID:</strong> {{ selectedEmp.eId }}</p>
+            <p><strong>Name:</strong> {{ selectedEmp.name }}</p>
+            <p><strong>Salary:</strong> ${{ selectedEmp.sal }}</p>
+            <p><strong>Gender:</strong> {{ selectedEmp.gender }}</p>
+          </div>
   
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        }
       </div>
     </div>
   </div>

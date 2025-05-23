@@ -9,7 +9,7 @@ import { EMPLOYEE_MESSAGES } from '../constants';
 
 @Component({
   selector: 'app-employee',
-  standalone: true,
+  
   imports: [FormsModule, FontAwesomeModule],
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
@@ -35,12 +35,11 @@ export class EmployeeComponent {
     gender: ''
   };
   
-  selectedEmp: any = null;
 
   deleteEmployee(index: number) {
     Swal.fire({
       title: 'Are you sure?',
-      text: 'You want to delete this employee',
+      text: EMPLOYEE_MESSAGES.CONFIRM_DELETE,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, delete',
@@ -48,7 +47,7 @@ export class EmployeeComponent {
     }).then(result => {
       if (result.isConfirmed) {
         this.employees.splice(index, 1);
-        new Snackbar('Employee Deleted Successfully', {
+        new Snackbar(EMPLOYEE_MESSAGES.DELETED_SUCCESS, {
           position: 'top-center',
           theme: 'light',
           timeout: 3000
@@ -68,9 +67,9 @@ export class EmployeeComponent {
       return;
     }
   
-    this.employees.push({ ...this.newEmp });
+    this.employees.push({ ...this.newEmp }); // Adding new record to Employee Table
   
-    new Snackbar('Employee Added Successfully', {
+    new Snackbar(EMPLOYEE_MESSAGES.ADDED_SUCCESS, {
       position: 'top-center',
       theme: 'light',
       timeout: 3000
@@ -79,6 +78,7 @@ export class EmployeeComponent {
     this.newEmp = { eId: 0, name: '', sal: 0, gender: '' };
   }
   
+  selectedEmp: any = null;
   // Create Modal To view detail of employee
   viewEmployee = (emp: any) => this.selectedEmp = emp;
   

@@ -7,9 +7,6 @@ import { BodyComponent } from './components/body/body.component';
 import { FooterComponent } from './components/footer/footer.component';
 // import { AssignmentComponent } from './components/assignment/assignment.component';
 
-
-
-
 @Component({
   selector: 'app-root',
   imports: [NavbarComponent,BodyComponent,FooterComponent],

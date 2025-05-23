@@ -1,0 +1,35 @@
+<h5 class="text-center" >Employee Form - CHILD_2</h5>
+<br>
+<div class="container w-50">
+
+  <div class="mb-3 d-flex align-items-center">
+    <label class="me-3 w-25">ID:</label>
+    <input type="number" min="1" class="form-control" [(ngModel)]="newEmp.eId" placeholder="ID input box">
+  </div>
+
+  <div class="mb-3 d-flex align-items-center">
+    <label class="me-3 w-25">Name:</label>
+    <input type="text" class="form-control" [(ngModel)]="newEmp.name" placeholder="Name input box">
+  </div>
+
+  <div class="mb-3 d-flex align-items-center">
+    <label class="me-3 w-25">Salary:</label>
+    <input type="number" min="1" class="form-control" [(ngModel)]="newEmp.sal" placeholder="Salary">
+  </div>
+
+  <div class="mb-4 d-flex align-items-center">
+    <label class="me-3 w-25">Gender:</label>
+    <select class="form-select" [(ngModel)]="newEmp.gender">
+      <option value="">Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-success" (click)="addEmployeeToParent()">
+      <fa-icon [icon]="faPlus"></fa-icon> Add
+    </button>
+  </div>
+  
+</div>

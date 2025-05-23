@@ -1,0 +1,17 @@
+<div class="container border border-5 p-2 m-2 text-center">
+    <div> I am Parent component</div>
+    <div>My own data a is: {{a}}</div>
+    <div>My Child comp data userName is: {{child1.userName}}</div>
+    <div>My Child comp data address is: {{address_parent}}</div>
+    
+
+    <div class="row">
+        <div class="col-sm-6  border-3">
+            <app-child-1 [a]="a" #child1></app-child-1>
+        </div>
+        <div class="col-sm-6  border-3">
+        <app-child-2 [child2_a]="a" [child2_userName]="child1.userName"
+        (addressEvent)="receiveDataFromChild($event)"></app-child-2>
+        </div>
+    </div>
+</div>

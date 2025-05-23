@@ -1,0 +1,27 @@
+<h5 class="text-center">Employee List - CHILD_1</h5>
+<table class="table table-bordered text-center">
+    <thead class="table-dark">
+      <tr>
+        <th style="width: 60px;">ID</th>
+        <th style="width: 100px;">Name</th>
+        <th style="width: 60px;">Salary</th>
+        <th style="width: 70px;">Gender</th>
+        <th style="width: 100px;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (emp of employeeListFromParent; let i = $index; track emp.eId) {
+        <tr>
+          <td>{{ emp.eId }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.sal }}</td>
+          <td>{{ emp.gender }}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-danger me-1" (click)="deleteEmployee(i)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>

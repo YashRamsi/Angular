@@ -1,0 +1,149 @@
+<h3 class="text-center">Let's Learn Pipes</h3>
+<hr />
+
+<!-- Lowercase, Uppercase, Titlecase Pipe -->
+<div class="border p-2 m-2">
+    <div>Lowercase, Uppercase, Titlecase Pipe</div>
+    <div>UserName: {{ userName }}</div>
+    <div>UserName Uppercase: {{ userName | uppercase }}</div>
+    <div>UserName Lowercase: {{ userName | lowercase }}</div>
+    <div>UserName Titlecase: {{ userName | titlecase }}</div>
+</div>
+
+<!-- Currency Pipe -->
+<div class="border p-2 m-2">
+    <div>Currency Pipe</div>
+    <div>Salary is: {{ salary }}</div>
+    <div>Salary is: {{ salary | currency }}</div>
+    <div>Salary is: {{ salary | currency : 'INR' }}</div>
+    <div>Salary is: {{ salary | currency : 'EUR' }}</div>
+    <div>Salary is: {{ salary | currency : 'CNY' }}</div>
+</div>
+
+<!-- Number & Percent Pipe -->
+<div class="border p-2 m-2">
+    <div>Number & Percent Pipe</div>
+    <div>Formatted Number (3.2-5): {{ 12.111222333 | number: '3.2-5' }}</div>
+    <div>Formatted Number (3.2-5): {{ 12.1 | number: '3.2-5' }}</div>
+    <div>Formatted Number (3.2-5): {{ 0.5 | number: '3.2-5' }}</div>
+    <div>Percentage (50%): {{ 0.5 | percent }}</div>
+    <div>Percentage (5%): {{ 0.05 | percent }}</div>
+</div>
+
+<!-- Date Pipe -->
+<div class="border p-2 m-2">
+    <div>Date Pipe</div>
+    <div>Current Date: {{ today }}</div>
+    <div>Current Date: {{ today | date }}</div>
+    <div>Current Date (Full Date): {{ today | date : 'fullDate' }}</div>
+    <div>Current Date (Short Date): {{ today | date : 'shortDate' }}</div>
+    <div>Current Date (Medium Date): {{ today | date : 'mediumDate' }}</div>
+    <div>Current Date (Long Date): {{ today | date : 'longDate' }}</div>
+    <div>Current Time (Short): {{ today | date : 'shortTime' }}</div>
+    <div>Current Time (Medium): {{ today | date : 'mediumTime' }}</div>
+    <div>Current Time (Long): {{ today | date : 'longTime' }}</div>
+    <div>Current Time (Custom): {{ today | date : 'HH:mm:ss' }}</div>
+</div>
+
+<div class="border border-5 p-2 m-2">
+    <div>json pipe:</div>
+  
+    <div>{{user}}</div>
+    <div>{{user | json}}</div>
+  </div>
+  <div class="border border-5 p-2 m-2 rounded-2">
+    <div>key-value pipe:</div>
+  
+    @for(entry of user | keyvalue;track $index){
+    <div>{{entry.key}}---{{entry.value}}</div>
+    }
+  </div>
+  
+  <div class="border border-5 p-2 m-2 rounded-2">
+    <div>Slice pipe:</div>
+    <div>{{numArr}}</div>
+    <div>{{numArr | slice : 2}}</div>
+    <div>{{numArr | slice : 2 : 4 }}</div>
+    <div>{{numArr | slice : 2 : -1 }}</div>
+  </div>
+  
+  <div class="border border-5 p-2 m-2 rounded-2">
+    <div>Remaining Characters (Custom Pipe)</div>
+  
+    <textarea [(ngModel)]="msg" maxlength="100"></textarea>
+    <div>Remaining Chars: {{msg | remaining : 100}}</div>
+  
+    <textarea [(ngModel)]="msg2" maxlength="200"></textarea>
+    <div>Remaining Chars: {{msg2 | remaining : 200}}</div>
+  </div>
+  
+  <div class="border border-5 p-2 m-2 rounded-2">
+    <div>Need of Impure Pipe</div>
+  
+    arr without sort:
+    @for (item of arr; track $index) {
+    <b>{{item}} &nbsp;</b>
+    }
+  
+    <div>
+      arr2 with sort:
+      @for (item of arr2 | mySort; track $index) {
+      <b>{{item}} &nbsp;</b>
+      }
+  
+      <div>
+        <input type="number" #newEle />
+        <button class="btn btn-primary" (click)="arr2.push(+newEle.value)">Add</button>
+      </div>
+    </div>
+  </div>
+
+
+  <h2 class="text-center">ASSIGNMENT - CUSTOM PIPES</h2>
+
+  <div class="border border-5 p-2 m-2 rounded-2">
+    <div>Ordinal Pipe - Custom</div>
+    <input type="number" [(ngModel)]="num" class="form-control mb-2" style="width: 100px;" />
+    <div>Ordinal Format: {{ num | ordinal }}</div>
+  </div>
+
+  <div class="border border-5 p-2 m-2 rounded-2">
+    <div>Roman Pipe - Custom</div>
+    <input type="number" [(ngModel)]="num1" class="form-control mb-2" style="width: 100px;" />
+    <div>Roman Format: {{ num1 | roman }}</div>
+  </div>
+  
+  <div class="border border-5 p-2 m-2 rounded-2">
+    <div>Age Pipe- Custom</div>
+    <input type="date" [(ngModel)]="birthDate" />
+    <div>Birth Date: {{ birthDate }}</div>
+    <div>Age: {{ birthDate | age }}</div>
+  </div>
+
+
+  <div class="border p-2 m-2 rounded-2" width = 50%>
+    <h5 class="text-center">EMPLOYEE DATA</h5>
+    <div class="d-flex justify-content-center bg-dark py-3">
+        <input type="text" [(ngModel)]="searchText" placeholder="Search by ID, Name, Gender" class="form-control w-50 d-inline-block me-2" />
+      </div>
+    <table class="table table-bordered text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Employee</th>
+          <th>Salary</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (emp of employees | employeeFilter : searchText; let i = $index; track emp.eId) {
+          <tr>
+            <td>{{ emp.eId }}</td>
+            <td>{{ emp.name | salutation: emp.gender }}</td>
+            <td>{{ emp.sal }}</td>
+            <td>{{ emp.gender }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
